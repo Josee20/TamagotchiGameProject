@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import Toast
 
-class SelectTamagotchiCollectionCollectionViewController: UICollectionViewController {
+class SelectTamagotchiCollectionViewController: UICollectionViewController {
 
     var tamagotchiList = TamagotchiInfo()
+    var navigationTitle = "다마고치 선택하기"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setLayout()
         
-        navigationItem.title = "다마고치 선택하기"
+        navigationItem.title = "\(navigationTitle)"
+        
+        view.backgroundColor = UIColor.init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
     }
-    
-    
     
     func setLayout() {
         let layout = UICollectionViewFlowLayout()
@@ -53,9 +55,23 @@ class SelectTamagotchiCollectionCollectionViewController: UICollectionViewContro
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let sb = UIStoryboard(name: "SelectTamagotchi", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "PopUpViewController")
+        let vc = sb.instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
         
-        vc.modalPresentationStyle = .overCurrentContext
-        present(vc, animated: true, completion: nil)
+        if navigationTitle == "다마고치 선택하기" {
+            vc.startButtonText = "시작하기"
+        } else if navigationTitle == "다마고치 변경하기" {
+            vc.startButtonText = "변경하기"
+        }
+        
+        if indexPath.row < 3 {
+            vc.modalPresentationStyle = .overCurrentContext
+            present(vc, animated: true, completion: nil)
+            vc.popUpDamagotchiImageView.image = tamagotchiList.info[indexPath.row].tamagotchiImageView
+            vc.popUpDamagotchiName.text = tamagotchiList.info[indexPath.row].name
+            vc.popUpDamagotchiOverView.text = tamagotchiList.info[indexPath.row].overview
+        } else {
+            self.view.makeToast("준비중인 다마고치입니다")
+            return
+        }
     }
 }

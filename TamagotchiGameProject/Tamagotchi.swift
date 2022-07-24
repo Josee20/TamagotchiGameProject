@@ -11,4 +11,6 @@ import UIKit
 struct Tamagotchi {
     var tamagotchiImageView: UIImage
     var name: String
+    var overview: String
+    
 }
