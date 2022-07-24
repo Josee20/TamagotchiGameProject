@@ -9,6 +9,9 @@ import UIKit
 
 class MainScreenViewController: UIViewController {
 
+    var tamagotchiState = TamagotchiState(rice: 0, water: 0)
+    var tamagotchiName = ""
+    
     @IBOutlet var divideLine: UIView!
     
     @IBOutlet weak var eatRiceButton: UIButton!
@@ -20,7 +23,11 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var eatRiceTextField: UITextField!
     @IBOutlet weak var drinkWaterTextField: UITextField!
     
-   
+    @IBOutlet weak var mainScreenTamagotchiName: UILabel!
+    @IBOutlet weak var mainScreenTamagotchInfo: UILabel!
+    @IBOutlet weak var mainScreenTamagotchiScriptLabel: UILabel!
+    
+    @IBOutlet weak var mainScreenTamagotchiImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +42,30 @@ class MainScreenViewController: UIViewController {
         
         mainScreenButtonStyle()
         lineStyle()
+        textFieldStyle()
         
+        mainScreenTamagotchiScriptLabel.numberOfLines = 0
+        
+        mainScreenTamagotchiName.text = tamagotchiName
+        
+        mainScreenTamagotchInfo.font = .systemFont(ofSize: 14)
+        mainScreenTamagotchInfo.text = "LV\(tamagotchiState.level) • 밥알 \(tamagotchiState.rice)개 • 물방울 \(tamagotchiState.water)개"
+        
+        if tamagotchiState.level < 9 {
+            mainScreenTamagotchiScriptLabel.text = tamagotchiState.sayScript.randomElement()
+        } else {
+            mainScreenTamagotchiScriptLabel.text = tamagotchiState.canNotEat
+        }
+    }
+    
+    @objc func moveSettingScreen() {
+        let sb = UIStoryboard(name: "SettingScreen", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SettingScreenTableViewController") as! SettingScreenTableViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func textFieldStyle() {
         eatRiceTextField.layer.borderWidth = 1
         eatRiceTextField.layer.borderColor = UIColor.init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1).cgColor
         eatRiceTextField.placeholder = "밥주세용"
@@ -47,16 +77,10 @@ class MainScreenViewController: UIViewController {
         drinkWaterTextField.placeholder = "물주세용"
         drinkWaterTextField.textAlignment = .center
         drinkWaterTextField.backgroundColor = .init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-    }
         
-    
-    @objc func moveSettingScreen() {
-        let sb = UIStoryboard(name: "SettingScreen", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "SettingScreenTableViewController") as! SettingScreenTableViewController
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        mainScreenTamagotchiScriptLabel.textAlignment = .center
     }
-    
+
     func lineStyle() {
         mainScreenBottomLine1.layer.borderWidth = 1
         mainScreenBottomLine1.layer.borderColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
@@ -83,4 +107,199 @@ class MainScreenViewController: UIViewController {
         drinkWaterButton.tintColor = .init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         drinkWaterButton.layer.cornerRadius = 7
     }
+    
+    @IBAction func eatRiceButtonClicked(_ sender: UIButton) {
+        
+        if let intFromStr = Int(eatRiceTextField.text!) {
+            if tamagotchiState.level < 10 {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.sayScript.randomElement()
+            } else {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.canNotEat
+                return
+            }
+            tamagotchiState.rice += intFromStr
+            
+        } else if eatRiceTextField.text == "" {
+            if tamagotchiState.level < 10 {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.sayScript.randomElement()
+            } else {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.canNotEat
+                return
+            }
+            tamagotchiState.rice += 1
+            
+        } else {
+            tamagotchiState.rice += 0
+            mainScreenTamagotchiScriptLabel.text = "숫자만 입력해주세용!"
+        }
+        
+        if tamagotchiName == "따끔따끔 다마고치" {
+            if tamagotchiState.level == 1 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-1")
+            } else if tamagotchiState.level == 2 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-2")
+            } else if tamagotchiState.level == 3 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-3")
+            } else if tamagotchiState.level == 4 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-4")
+            } else if tamagotchiState.level == 5 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-5")
+            } else if tamagotchiState.level == 6 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-6")
+            } else if tamagotchiState.level == 7 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-7")
+            } else if tamagotchiState.level == 8 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-8")
+            } else if tamagotchiState.level == 9 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-9")
+            } else {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-9")
+            }
+        } else if tamagotchiName == "방실방실 다마고치" {
+            if tamagotchiState.level == 1 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-1")
+            } else if tamagotchiState.level == 2 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-2")
+            } else if tamagotchiState.level == 3 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-3")
+            } else if tamagotchiState.level == 4 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-4")
+            } else if tamagotchiState.level == 5 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-5")
+            } else if tamagotchiState.level == 6 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-6")
+            } else if tamagotchiState.level == 7 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-7")
+            } else if tamagotchiState.level == 8 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-8")
+            } else if tamagotchiState.level == 9 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-9")
+            } else {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-9")
+            }
+        } else if tamagotchiName == "반짝반짝 다마고치" {
+            if tamagotchiState.level == 1 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-1")
+            } else if tamagotchiState.level == 2 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-2")
+            } else if tamagotchiState.level == 3 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-3")
+            } else if tamagotchiState.level == 4 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-4")
+            } else if tamagotchiState.level == 5 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-5")
+            } else if tamagotchiState.level == 6 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-6")
+            } else if tamagotchiState.level == 7 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-7")
+            } else if tamagotchiState.level == 8 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-8")
+            } else if tamagotchiState.level == 9 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-9")
+            } else {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-9")
+            }
+        }
+        
+        mainScreenTamagotchInfo.text = "LV\(tamagotchiState.level) • 밥알 \(tamagotchiState.rice)개 • 물방울 \(tamagotchiState.water)개"
+
+    }
+    
+    @IBAction func drinkWaterButtonClicked(_ sender: UIButton) {
+        
+        if let intFromStr = Int(drinkWaterTextField.text!) {
+            if tamagotchiState.level < 10 {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.sayScript.randomElement()
+            } else {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.canNotEat
+                return
+            }
+            tamagotchiState.water += intFromStr
+            
+        } else if drinkWaterTextField.text == ""{
+            if tamagotchiState.level < 10 {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.sayScript.randomElement()
+            } else {
+                mainScreenTamagotchiScriptLabel.text = tamagotchiState.canNotEat
+                return
+            }
+            tamagotchiState.water += 1
+            
+        } else {
+            tamagotchiState.water += 0
+            mainScreenTamagotchiScriptLabel.text = "숫자만 입력해주세용!"
+        }
+        
+        if tamagotchiName == "따끔따끔 다마고치" {
+            if tamagotchiState.level == 1 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-1")
+            } else if tamagotchiState.level == 2 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-2")
+            } else if tamagotchiState.level == 3 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-3")
+            } else if tamagotchiState.level == 4 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-4")
+            } else if tamagotchiState.level == 5 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-5")
+            } else if tamagotchiState.level == 6 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-6")
+            } else if tamagotchiState.level == 7 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-7")
+            } else if tamagotchiState.level == 8 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-8")
+            } else if tamagotchiState.level == 9 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-9")
+            } else {
+                mainScreenTamagotchiImageView.image = UIImage(named: "1-9")
+            }
+        } else if tamagotchiName == "방실방실 다마고치" {
+            if tamagotchiState.level == 1 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-1")
+            } else if tamagotchiState.level == 2 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-2")
+            } else if tamagotchiState.level == 3 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-3")
+            } else if tamagotchiState.level == 4 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-4")
+            } else if tamagotchiState.level == 5 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-5")
+            } else if tamagotchiState.level == 6 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-6")
+            } else if tamagotchiState.level == 7 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-7")
+            } else if tamagotchiState.level == 8 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-8")
+            } else if tamagotchiState.level == 9 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-9")
+            } else {
+                mainScreenTamagotchiImageView.image = UIImage(named: "2-9")
+            }
+        } else if tamagotchiName == "반짝반짝 다마고치" {
+            if tamagotchiState.level == 1 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-1")
+            } else if tamagotchiState.level == 2 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-2")
+            } else if tamagotchiState.level == 3 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-3")
+            } else if tamagotchiState.level == 4 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-4")
+            } else if tamagotchiState.level == 5 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-5")
+            } else if tamagotchiState.level == 6 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-6")
+            } else if tamagotchiState.level == 7 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-7")
+            } else if tamagotchiState.level == 8 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-8")
+            } else if tamagotchiState.level == 9 {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-9")
+            } else {
+                mainScreenTamagotchiImageView.image = UIImage(named: "3-9")
+            }
+        }
+        
+        mainScreenTamagotchInfo.text = "LV\(tamagotchiState.level) • 밥알 \(tamagotchiState.rice)개 • 물방울 \(tamagotchiState.water)개"
+    
+    }
+    
 }

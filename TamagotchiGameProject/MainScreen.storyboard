@@ -41,11 +41,17 @@
                                 <rect key="frame" x="268" y="600" width="78" height="37.5"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="밥먹기" image="drop.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="eatRiceButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7l4-zD-yaK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bD5-5K-Jop">
                                 <rect key="frame" x="268" y="661.5" width="78" height="37.5"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="물먹기" image="leaf.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="drinkWaterButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jga-Cf-gMf"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJm-bU-GTS">
                                 <rect key="frame" x="78" y="638" width="176" height="1"/>
@@ -71,8 +77,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹㄹ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nam-3K-HNa">
-                                <rect key="frame" x="122.5" y="202" width="169" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nam-3K-HNa">
+                                <rect key="frame" x="122.5" y="159" width="169" height="97"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,6 +97,7 @@
                             <constraint firstItem="Iab-t6-Ktk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="06u-nj-iuq"/>
                             <constraint firstItem="bD5-5K-Jop" firstAttribute="top" secondItem="0Z9-Z9-Hd2" secondAttribute="bottom" constant="24" id="0VT-bW-Snd"/>
                             <constraint firstItem="3st-87-RGp" firstAttribute="top" secondItem="7cX-IC-8W3" secondAttribute="bottom" constant="12" id="13n-1i-OAk"/>
+                            <constraint firstItem="Nam-3K-HNa" firstAttribute="top" secondItem="Iab-t6-Ktk" secondAttribute="bottom" constant="70" id="4hG-61-aZd"/>
                             <constraint firstItem="0Z9-Z9-Hd2" firstAttribute="width" secondItem="1DR-f2-L2K" secondAttribute="width" multiplier="0.4" id="54x-2Z-S0T"/>
                             <constraint firstItem="4hu-Oy-kkO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="90" id="5QW-yl-7cw"/>
                             <constraint firstItem="Qvw-N4-LaQ" firstAttribute="top" secondItem="4go-qu-Wxf" secondAttribute="bottom" id="8e6-Y6-6xe"/>
@@ -109,8 +116,8 @@
                             <constraint firstItem="Nam-3K-HNa" firstAttribute="width" secondItem="4hu-Oy-kkO" secondAttribute="width" multiplier="0.722222" id="TK4-zf-SRS"/>
                             <constraint firstItem="bD5-5K-Jop" firstAttribute="centerX" secondItem="0Z9-Z9-Hd2" secondAttribute="centerX" id="TQk-0g-PTs"/>
                             <constraint firstItem="4hu-Oy-kkO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="V7h-XW-b51"/>
+                            <constraint firstItem="1DR-f2-L2K" firstAttribute="top" secondItem="Nam-3K-HNa" secondAttribute="bottom" constant="50" id="Y3S-eV-FiI"/>
                             <constraint firstItem="3st-87-RGp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="YzU-40-FZN"/>
-                            <constraint firstItem="Nam-3K-HNa" firstAttribute="centerY" secondItem="4hu-Oy-kkO" secondAttribute="centerY" constant="-6" id="a6h-Gu-3mw"/>
                             <constraint firstItem="4go-qu-Wxf" firstAttribute="top" secondItem="dJm-bU-GTS" secondAttribute="bottom" constant="25" id="bLa-SW-pRe"/>
                             <constraint firstItem="1DR-f2-L2K" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="110" id="bZd-4Y-EXX"/>
                             <constraint firstItem="1DR-f2-L2K" firstAttribute="top" secondItem="4hu-Oy-kkO" secondAttribute="bottom" id="dWE-fT-Ixx"/>
@@ -134,11 +141,15 @@
                         <outlet property="eatRiceTextField" destination="LDC-ri-U7i" id="HuG-8z-Bo5"/>
                         <outlet property="mainScreenBottomLine1" destination="dJm-bU-GTS" id="Fve-El-1Ym"/>
                         <outlet property="mainScreenBottomLine2" destination="Qvw-N4-LaQ" id="PQc-xv-rQX"/>
+                        <outlet property="mainScreenTamagotchInfo" destination="3st-87-RGp" id="5yg-gf-rnJ"/>
+                        <outlet property="mainScreenTamagotchiImageView" destination="1DR-f2-L2K" id="T4d-La-EoO"/>
+                        <outlet property="mainScreenTamagotchiName" destination="7cX-IC-8W3" id="dCE-ce-LJf"/>
+                        <outlet property="mainScreenTamagotchiScriptLabel" destination="Nam-3K-HNa" id="5pR-eD-VNF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1142" y="-188"/>
+            <point key="canvasLocation" x="-2443" y="-125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zax-fk-uMf">
@@ -159,7 +170,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I62-fC-brR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2061" y="-187"/>
+            <point key="canvasLocation" x="-3254" y="-265"/>
         </scene>
     </scenes>
     <resources>

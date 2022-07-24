@@ -40,8 +40,8 @@ class SettingScreenTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = "설정"
-        view.backgroundColor = .init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
+        view.backgroundColor = .init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
         navigationItem.leftBarButtonItem?.image = UIImage(systemName: "chevron.backward")
         // 왜 뒤로가기 하면 타이틀이 사라지는 것인가

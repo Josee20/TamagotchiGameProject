@@ -11,6 +11,7 @@
 		495A55F1288D18CD004BD33B /* SetNameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 495A55F0288D18CD004BD33B /* SetNameScreen.storyboard */; };
 		495A55F3288D18EC004BD33B /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A55F2288D18EC004BD33B /* SetNameViewController.swift */; };
 		495A55F6288DB4D6004BD33B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 495A55F5288DB4D6004BD33B /* Toast */; };
+		495A55F8288DC95B004BD33B /* TamagotchiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A55F7288DC95B004BD33B /* TamagotchiState.swift */; };
 		49889692288A7AD200661532 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49889691288A7AD200661532 /* AppDelegate.swift */; };
 		49889694288A7AD200661532 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49889693288A7AD200661532 /* SceneDelegate.swift */; };
 		49889696288A7AD200661532 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49889695288A7AD200661532 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		4925C589288CD48C00A93EB5 /* SettingScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreenTableViewCell.swift; sourceTree = "<group>"; };
 		495A55F0288D18CD004BD33B /* SetNameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SetNameScreen.storyboard; sourceTree = "<group>"; };
 		495A55F2288D18EC004BD33B /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
+		495A55F7288DC95B004BD33B /* TamagotchiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiState.swift; sourceTree = "<group>"; };
 		4988968E288A7AD200661532 /* TamagotchiGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TamagotchiGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49889691288A7AD200661532 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49889693288A7AD200661532 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				495A55F2288D18EC004BD33B /* SetNameViewController.swift */,
 				498896AB288AA69200661532 /* Tamagotchi.swift */,
 				498896AD288AA74800661532 /* TamagotchiInfo.swift */,
+				495A55F7288DC95B004BD33B /* TamagotchiState.swift */,
 				4988969C288A7AD400661532 /* LaunchScreen.storyboard */,
 				4988969A288A7AD400661532 /* Assets.xcassets */,
 				4988969F288A7AD400661532 /* Info.plist */,
@@ -193,6 +196,7 @@
 				498896AE288AA74800661532 /* TamagotchiInfo.swift in Sources */,
 				49D9C410288BAC5B00B8CC0E /* SettingScreenTableViewController.swift in Sources */,
 				49889696288A7AD200661532 /* ViewController.swift in Sources */,
+				495A55F8288DC95B004BD33B /* TamagotchiState.swift in Sources */,
 				49889692288A7AD200661532 /* AppDelegate.swift in Sources */,
 				498896AA288A925600661532 /* SelectTamagotchiCollectionViewCell.swift in Sources */,
 				495A55F3288D18EC004BD33B /* SetNameViewController.swift in Sources */,

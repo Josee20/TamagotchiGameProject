@@ -85,9 +85,13 @@ class PopUpViewController: UIViewController {
         let sb = UIStoryboard(name: "MainScreen", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MainScreenViewController") as! MainScreenViewController
         
+        vc.tamagotchiName = popUpDamagotchiName.text!
+        
         let nav = UINavigationController(rootViewController: vc)
         
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: false)
+        
+        
     }
 }
