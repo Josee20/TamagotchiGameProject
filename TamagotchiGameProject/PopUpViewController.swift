@@ -12,7 +12,7 @@ class PopUpViewController: UIViewController {
     // 상속받는 상위클래스(UICollectionViewController, UIViewController에 차이가 있으면 다른 클래스안에서 초기화가 불가능한가?
     // var initSelectTamagotchiCollectionViewController = SelectTamagotchiCollectionViewController()
     
-    var startButtonText = "시작하기"
+    var startButtonText = ""
     
     @IBOutlet weak var popUpDamagotchiImageView: UIImageView!
     @IBOutlet weak var popUpDamagotchiName: UILabel!
@@ -82,10 +82,18 @@ class PopUpViewController: UIViewController {
     }
     
     @IBAction func startButtonClicked(_ sender: UIButton) {
+        
+        if startButtonText == "시작하기" {
+            UserDefaults.standard.removeObject(forKey: "riceValue")
+            UserDefaults.standard.removeObject(forKey: "waterValue")
+            
+        }
+        
         let sb = UIStoryboard(name: "MainScreen", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MainScreenViewController") as! MainScreenViewController
         
         vc.tamagotchiName = popUpDamagotchiName.text!
+        UserDefaults.standard.set(vc.tamagotchiName, forKey: "tamagotchiNameValue")
         
         let nav = UINavigationController(rootViewController: vc)
         

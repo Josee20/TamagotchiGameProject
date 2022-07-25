@@ -12,6 +12,7 @@
 		495A55F3288D18EC004BD33B /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A55F2288D18EC004BD33B /* SetNameViewController.swift */; };
 		495A55F6288DB4D6004BD33B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 495A55F5288DB4D6004BD33B /* Toast */; };
 		495A55F8288DC95B004BD33B /* TamagotchiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A55F7288DC95B004BD33B /* TamagotchiState.swift */; };
+		495A55FB288E202D004BD33B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 495A55FA288E202D004BD33B /* IQKeyboardManagerSwift */; };
 		49889692288A7AD200661532 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49889691288A7AD200661532 /* AppDelegate.swift */; };
 		49889694288A7AD200661532 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49889693288A7AD200661532 /* SceneDelegate.swift */; };
 		49889696288A7AD200661532 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49889695288A7AD200661532 /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495A55F6288DB4D6004BD33B /* Toast in Frameworks */,
+				495A55FB288E202D004BD33B /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +131,7 @@
 			name = TamagotchiGameProject;
 			packageProductDependencies = (
 				495A55F5288DB4D6004BD33B /* Toast */,
+				495A55FA288E202D004BD33B /* IQKeyboardManagerSwift */,
 			);
 			productName = TamagotchiGameProject;
 			productReference = 4988968E288A7AD200661532 /* TamagotchiGameProject.app */;
@@ -160,6 +163,7 @@
 			mainGroup = 49889685288A7AD200661532;
 			packageReferences = (
 				495A55F4288DB4D6004BD33B /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				495A55F9288E202D004BD33B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 4988968F288A7AD200661532 /* Products */;
 			projectDirPath = "";
@@ -354,11 +358,13 @@
 				DEVELOPMENT_TEAM = AW5HC5SGGG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TamagotchiGameProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이동기";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = SelectTamagotchi;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -368,7 +374,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -382,11 +388,13 @@
 				DEVELOPMENT_TEAM = AW5HC5SGGG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TamagotchiGameProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이동기";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = SelectTamagotchi;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,7 +404,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -432,6 +440,14 @@
 				kind = branch;
 			};
 		};
+		495A55F9288E202D004BD33B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -439,6 +455,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 495A55F4288DB4D6004BD33B /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		495A55FA288E202D004BD33B /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 495A55F9288E202D004BD33B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

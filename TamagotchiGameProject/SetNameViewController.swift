@@ -8,7 +8,7 @@
 import UIKit
 
 class SetNameViewController: UIViewController {
-
+    
     @IBOutlet weak var setNameScreenTextLabel: UITextField!
     
     @IBOutlet var setScreenBottomLine: UIView!
@@ -31,6 +31,15 @@ class SetNameViewController: UIViewController {
     }
     
     @objc func saveButtonClicked() {
-        return
+        
+        if setNameScreenTextLabel.text!.count < 2 && setNameScreenTextLabel.text!.count > 6 {
+            self.view.makeToast("2글자 이상 6글자 이하의 닉네임만 가능합니다")
+        } else {
+            TamagotchiState.nickName = setNameScreenTextLabel.text!
+            self.navigationController?.popViewController(animated: true)
+        }
+
+        // 타입 프로퍼티의 값은 바뀌었지만 초기화가 안 됨
+        print(TamagotchiState.nickName)
     }
 }

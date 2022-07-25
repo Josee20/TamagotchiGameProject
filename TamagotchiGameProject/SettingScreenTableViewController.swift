@@ -27,7 +27,7 @@ enum tableSet: Int, CaseIterable {
     var rowDetailTextLabel: [String] {
         switch self {
         case.a:
-            return ["nickname", "", ""]
+            return ["\(TamagotchiState.nickName)", "", ""]
         }
     }
 }
@@ -44,12 +44,16 @@ class SettingScreenTableViewController: UITableViewController {
         view.backgroundColor = .init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
         navigationItem.leftBarButtonItem?.image = UIImage(systemName: "chevron.backward")
+        
         // 왜 뒤로가기 하면 타이틀이 사라지는 것인가
         // self.navigationController?.navigationBar.topItem?.title = ""
+        
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         
         divideLine.layer.borderWidth = 1
         divideLine.layer.borderColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,10 +86,17 @@ class SettingScreenTableViewController: UITableViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
         } else if indexPath.row == 2 {
+            let sb = UIStoryboard(name: "SelectTamagotchi", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SelectTamagotchiCollectionViewController") as! SelectTamagotchiCollectionViewController
+            let nav = UINavigationController(rootViewController: vc)
+            
+            nav.modalPresentationStyle = .fullScreen
+            nav.modalTransitionStyle = .crossDissolve
+            
             let alert = UIAlertController.init(title: "데이터 초기화", message: "정말 다시 처음부터 시작하실 건가용?", preferredStyle: .alert)
             
             let cancel = UIAlertAction(title: "아냐!", style: .cancel, handler: nil)
-            let ok = UIAlertAction(title: "웅", style: .default, handler: nil)
+            let ok = UIAlertAction(title: "웅", style: .default, handler: { _ in return self.present(nav, animated: true)})
             
             alert.addAction(cancel)
             alert.addAction(ok)
