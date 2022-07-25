@@ -34,9 +34,7 @@ class MainScreenViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-
-        self.navigationItem.title = "\(TamagotchiState.nickName)님의 다마고치"
-                
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(moveSettingScreen))
         
         navigationItem.rightBarButtonItem?.tintColor = .black
@@ -54,7 +52,10 @@ class MainScreenViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-    
+        
+        let name = UserDefaults.standard.value(forKey: "nickName") as! String
+        self.navigationItem.title = "\(name)님의 다마고치"
+        
         tamagotchiState.rice = UserDefaults.standard.integer(forKey: "riceValue")
         tamagotchiState.water = UserDefaults.standard.integer(forKey: "waterValue")
 

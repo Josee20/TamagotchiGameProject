@@ -42,7 +42,9 @@ struct TamagotchiState {
     }
     var sayScript: String {
         get {
-            let script: [String] = ["목말라요~~~~~", "배고파요 ㅠㅠ 밥 먹고싶어요", "오늘은 왠지 기분이 좋네요", "테이블뷰컨트롤러와 뷰컨트롤러는 어떤 차이가 있을까요?", "\(TamagotchiState.nickName)님 오늘 과제는 하셨어요", "\(TamagotchiState.nickName)님 오늘 복습 제대로 하신거 맞죠?ㅎㅎ", "좋은 날씨네요!!!", "\(TamagotchiState.nickName)님도 고생 많으셨어요!!!"]
+            let name = UserDefaults.standard.value(forKey: "nickName") as! String
+            
+            let script: [String] = ["목말라요~~~~~", "배고파요 ㅠㅠ 밥 먹고싶어요", "오늘은 왠지 기분이 좋네요", "테이블뷰컨트롤러와 뷰컨트롤러는 어떤 차이가 있을까요?", "\(name)님 오늘 과제는 하셨어요", "\(name)님 오늘 복습 제대로 하신거 맞죠?ㅎㅎ", "좋은 날씨네요!!!", "\(name)님도 고생 많으셨어요!!!"]
             
             return script[Int.random(in: 0...7)]
         }

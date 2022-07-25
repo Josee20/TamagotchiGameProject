@@ -22,6 +22,7 @@ class SelectTamagotchiCollectionViewController: UICollectionViewController {
         
         view.backgroundColor = UIColor.init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
         
+        UserDefaults.standard.set("대장", forKey: "nickName")
     }
     
     func setLayout() {
@@ -70,8 +71,10 @@ class SelectTamagotchiCollectionViewController: UICollectionViewController {
             vc.popUpDamagotchiName.text = tamagotchiList.info[indexPath.row].name
             vc.popUpDamagotchiOverView.text = tamagotchiList.info[indexPath.row].overview
         } else {
-            self.view.makeToast("준비중인 다마고치입니다")
+            self.view.makeToast("준비중인 다마고치입니다",duration: 3.0, position: .center)
             return
         }
     }
+    
+    
 }

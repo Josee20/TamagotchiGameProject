@@ -8,6 +8,7 @@
 import UIKit
 
 enum tableSet: Int, CaseIterable {
+    
     case a
     
     var rowTitle: [String] {
@@ -27,7 +28,7 @@ enum tableSet: Int, CaseIterable {
     var rowDetailTextLabel: [String] {
         switch self {
         case.a:
-            return ["\(TamagotchiState.nickName)", "", ""]
+            return ["\(UserDefaults.standard.value(forKey: "nickName") as! String)", "", ""]
         }
     }
 }
@@ -46,7 +47,7 @@ class SettingScreenTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem?.image = UIImage(systemName: "chevron.backward")
         
         // 왜 뒤로가기 하면 타이틀이 사라지는 것인가
-        // self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = ""
         
         self.navigationController?.navigationBar.tintColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         
@@ -55,6 +56,10 @@ class SettingScreenTableViewController: UITableViewController {
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

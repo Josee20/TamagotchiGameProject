@@ -10,4 +10,6 @@ import UIKit
 class SettingScreenTableViewCell: UITableViewCell {
 
     static let identifier = "SettingScreenTableViewCell"
+    
+    
 }
