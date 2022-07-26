@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 
 class MainScreenViewController: UIViewController {
 
@@ -37,20 +37,18 @@ class MainScreenViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(moveSettingScreen))
         
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
         
         mainScreenButtonStyle()
         lineStyle()
         textFieldStyle()
         
-        mainScreenTamagotchiScriptLabel.numberOfLines = 0
+        mainScreenTamagotchiScriptLabel.numberOfLines = 4
         mainScreenTamagotchiName.text = UserDefaults.standard.string(forKey: "tamagotchiNameValue")
         
         imageSetWithLevel()
-        
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         let name = UserDefaults.standard.value(forKey: "nickName") as! String
@@ -71,6 +69,7 @@ class MainScreenViewController: UIViewController {
         mainScreenTamagotchiName.text = UserDefaults.standard.string(forKey: "tamagotchiNameValue")
         
         imageSetWithLevel()
+        
     }
     
     @objc func moveSettingScreen() {
@@ -79,8 +78,6 @@ class MainScreenViewController: UIViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    
     
     func textFieldStyle() {
         eatRiceTextField.layer.borderWidth = 1

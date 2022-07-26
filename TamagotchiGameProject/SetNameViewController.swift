@@ -39,7 +39,6 @@ class SetNameViewController: UIViewController {
         } else {
             UserDefaults.standard.set("\(setNameScreenTextLabel.text!)", forKey: "nickName")
             self.navigationController?.popViewController(animated: true)
-            
         }
     }
 }

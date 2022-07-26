@@ -53,13 +53,11 @@ class SettingScreenTableViewController: UITableViewController {
         
         divideLine.layer.borderWidth = 1
         divideLine.layer.borderColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
-        
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

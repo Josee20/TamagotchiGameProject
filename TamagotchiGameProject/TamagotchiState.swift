@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 struct TamagotchiState {
-    static var nickName: String = "대장"
     var rice: Int = 0
     var water: Int = 0
     var level: Int {

@@ -58,6 +58,7 @@ class SelectTamagotchiCollectionViewController: UICollectionViewController {
         let sb = UIStoryboard(name: "SelectTamagotchi", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "PopUpViewController") as! PopUpViewController
         
+        
         if navigationTitle == "다마고치 선택하기" {
             vc.startButtonText = "시작하기"
         } else if navigationTitle == "다마고치 변경하기" {
@@ -75,6 +76,4 @@ class SelectTamagotchiCollectionViewController: UICollectionViewController {
             return
         }
     }
-    
-    
 }

@@ -14,6 +14,7 @@ class PopUpViewController: UIViewController {
     
     var startButtonText = ""
     
+    
     @IBOutlet weak var popUpDamagotchiImageView: UIImageView!
     @IBOutlet weak var popUpDamagotchiName: UILabel!
     @IBOutlet weak var popUpDamagotchiOverView: UILabel!
@@ -22,6 +23,7 @@ class PopUpViewController: UIViewController {
     @IBOutlet weak var popUpStartButton: UIButton!
     
     @IBOutlet weak var bottomLine: UIView!
+    @IBOutlet weak var bottomLine2: UIView!
     
     @IBOutlet weak var popUpView: UIView!
     
@@ -36,6 +38,9 @@ class PopUpViewController: UIViewController {
         popUpDamagotchiOverviewStyle()
         
         popUpView.layer.cornerRadius = 10
+       
+        
+        
     }
     
     func popUpDamagotchiOverviewStyle() {
@@ -58,24 +63,26 @@ class PopUpViewController: UIViewController {
         popUpCancelButton.setTitle("취소", for: .normal)
         popUpCancelButton.setTitleColor(UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         popUpCancelButton.layer.borderWidth = 1
-        popUpCancelButton.layer.borderColor = UIColor.systemGray4.cgColor
-        popUpCancelButton.backgroundColor = .systemGray6
-        popUpCancelButton.layer.cornerRadius = 8
+        popUpCancelButton.layer.borderColor = UIColor.clear.cgColor
+//        popUpCancelButton.layer.cornerRadius = 8
         popUpCancelButton.clipsToBounds = true
+        popUpCancelButton.backgroundColor = .clear
         
         popUpStartButton.setTitle("\(startButtonText)", for: .normal)
         popUpStartButton.setTitleColor(UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         popUpStartButton.layer.borderWidth = 1
-        popUpStartButton.layer.borderColor = UIColor.systemGray4.cgColor
-        popUpStartButton.layer.cornerRadius = 8
+        popUpStartButton.layer.borderColor = UIColor.white.cgColor
+//        popUpStartButton.layer.cornerRadius = 8
         popUpStartButton.clipsToBounds = true
+        popUpStartButton.backgroundColor = .white
     }
     
     func bottomLineStyle() {
         bottomLine.layer.borderWidth = 1
         bottomLine.layer.borderColor = UIColor.systemGray4.cgColor
+        bottomLine2.layer.borderWidth = 1
+        bottomLine2.layer.borderColor = UIColor.systemGray4.cgColor
     }
-    
     
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         self.dismiss(animated: true)
@@ -86,7 +93,6 @@ class PopUpViewController: UIViewController {
         if startButtonText == "시작하기" {
             UserDefaults.standard.removeObject(forKey: "riceValue")
             UserDefaults.standard.removeObject(forKey: "waterValue")
-            
         }
         
         let sb = UIStoryboard(name: "MainScreen", bundle: nil)
@@ -97,9 +103,9 @@ class PopUpViewController: UIViewController {
         
         let nav = UINavigationController(rootViewController: vc)
         
+       
+        
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: false)
-        
-        
     }
 }

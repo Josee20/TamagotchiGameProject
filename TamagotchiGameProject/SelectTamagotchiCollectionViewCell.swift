@@ -23,6 +23,6 @@ class SelectTamagotchiCollectionViewCell: UICollectionViewCell {
         selectTamagotchiButton.layer.cornerRadius = 5
         selectTamagotchiButton.layer.borderWidth = 1
         selectTamagotchiButton.layer.borderColor = UIColor.lightGray.cgColor
-        selectTamagotchiButton.titleLabel?.font = .systemFont(ofSize: 14)
+        selectTamagotchiButton.titleLabel?.font = .systemFont(ofSize: 12)
     }
 }
