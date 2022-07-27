@@ -38,9 +38,6 @@ class PopUpViewController: UIViewController {
         popUpDamagotchiOverviewStyle()
         
         popUpView.layer.cornerRadius = 10
-       
-        
-        
     }
     
     func popUpDamagotchiOverviewStyle() {
@@ -64,7 +61,6 @@ class PopUpViewController: UIViewController {
         popUpCancelButton.setTitleColor(UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         popUpCancelButton.layer.borderWidth = 1
         popUpCancelButton.layer.borderColor = UIColor.clear.cgColor
-//        popUpCancelButton.layer.cornerRadius = 8
         popUpCancelButton.clipsToBounds = true
         popUpCancelButton.backgroundColor = .clear
         
@@ -72,7 +68,6 @@ class PopUpViewController: UIViewController {
         popUpStartButton.setTitleColor(UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         popUpStartButton.layer.borderWidth = 1
         popUpStartButton.layer.borderColor = UIColor.white.cgColor
-//        popUpStartButton.layer.cornerRadius = 8
         popUpStartButton.clipsToBounds = true
         popUpStartButton.backgroundColor = .white
     }

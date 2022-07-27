@@ -32,7 +32,6 @@ class SetNameViewController: UIViewController {
     }
     
     @objc func saveButtonClicked() {
-        
         if setNameScreenTextLabel.text!.count < 2 || setNameScreenTextLabel.text!.count > 6 {
             self.view.makeToast("2글자 이상 6글자 이하의\n 닉네임만 가능합니다", duration: 3.0, position: .center)
             setNameScreenTextLabel.text = ""

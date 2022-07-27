@@ -34,7 +34,7 @@ class MainScreenViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)
-        
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(moveSettingScreen))
         
         self.navigationItem.rightBarButtonItem?.tintColor = .black
@@ -42,6 +42,7 @@ class MainScreenViewController: UIViewController {
         mainScreenButtonStyle()
         lineStyle()
         textFieldStyle()
+        setNav()
         
         mainScreenTamagotchiScriptLabel.numberOfLines = 4
         mainScreenTamagotchiName.text = UserDefaults.standard.string(forKey: "tamagotchiNameValue")
@@ -79,6 +80,15 @@ class MainScreenViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func setNav() {
+        let navibarAppearance = UINavigationBarAppearance()
+
+        navibarAppearance.backgroundColor = UIColor.init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1)// 색을 일치시키기 위한 코드
+        
+        self.navigationItem.scrollEdgeAppearance = navibarAppearance
+        self.navigationItem.standardAppearance = navibarAppearance
+    }
+    
     func textFieldStyle() {
         eatRiceTextField.layer.borderWidth = 1
         eatRiceTextField.layer.borderColor = UIColor.init(red: 245/255, green: 252/255, blue: 252/255, alpha: 1).cgColor
@@ -104,7 +114,7 @@ class MainScreenViewController: UIViewController {
         mainScreenBottomLine2.layer.borderWidth = 1
         mainScreenBottomLine2.layer.borderColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
         
-        divideLine.layer.borderWidth = 2
+        divideLine.layer.borderWidth = 1
         divideLine.layer.borderColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor
     }
     
